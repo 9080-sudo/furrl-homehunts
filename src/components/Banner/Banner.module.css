@@ -1,0 +1,21 @@
+.banner {
+  height: 210px;
+  width: 100%;
+  background-image: url("https://cdn.furrl.in/vibes/VibeCard_HomeHunts.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.alignment {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.font {
+  color: #fff;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 23px;
+  margin: 5px;
+}

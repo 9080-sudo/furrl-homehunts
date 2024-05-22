@@ -1,0 +1,29 @@
+.filters-list {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  padding: 0px;
+  overflow-x: auto;
+  margin: 3px 0px;
+}
+
+.filters-list::-webkit-scrollbar {
+  display: none;
+}
+
+.filter {
+  border: 1px solid #e2e8ee;
+  border-radius: 18px;
+  padding: 6px;
+  font-size: 13px;
+  margin: 2px 5px 2px 0px;
+  max-width: 200px;
+  text-wrap: nowrap;
+  color: #717171;
+  cursor: pointer;
+}
+
+.active-filter {
+  background-color: #7e59e7;
+  color: #fff;
+}

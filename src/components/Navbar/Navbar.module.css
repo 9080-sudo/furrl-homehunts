@@ -1,0 +1,14 @@
+.nav-container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px 18px;
+}
+
+.m-auto{
+    margin: 0px auto;
+}
+
+.mlr{
+    margin: 0px 5px;
+}

@@ -1,0 +1,14 @@
+.share-btn-container {
+  background-color: #4b5563;
+  padding: 3px;
+  border-radius: 10px;
+  position: absolute;
+  right: 10px;
+  bottom: 80px;
+}
+
+.share-position {
+  font-size: 20px;
+  color: #fff;
+  cursor: pointer;
+}
