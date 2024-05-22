@@ -32,10 +32,11 @@ export default function ProductItem({ product, takeFullWidth }) {
     heightStyle = { height: "300px" };
   }
   console.log(window.innerWidth);
+  const productDetailsLink = `https://web.furrl.in/productDetail?id=${id}&ref=vibeResults_HomeHunts`
   return (
     <li className={classes["product-container"]} style={widthStyle}>
       <a
-        href={`https://web.furrl.in/productDetail?id=${id}&ref=vibeResults_HomeHunts`}
+        href={productDetailsLink}
         className={classes['product-link']}
       >
         <div>
@@ -57,7 +58,7 @@ export default function ProductItem({ product, takeFullWidth }) {
             </div>
           </div>
         </div>
-        <ShareButton />
+        <ShareButton productDetailsLink={productDetailsLink}/>
       </a>
     </li>
   );

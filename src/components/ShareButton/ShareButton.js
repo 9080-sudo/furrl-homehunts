@@ -3,13 +3,13 @@ import React from "react";
 import { IoShareOutline } from "react-icons/io5";
 import classes from './ShareButton.module.css'
 
-export default function ShareButton() {
+export default function ShareButton({productDetailsLink}) {
     const openShareScreen = async () => {
         try {
             if (navigator.share) {
               await navigator.share({
-                title: 'Share Example',
-                text: 'Check out this cool content!',
+                title: 'Product Details',
+                text: productDetailsLink,
                 url: window.location.href
               });
             } else {
