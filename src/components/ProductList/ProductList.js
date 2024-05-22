@@ -19,7 +19,7 @@ export default function ProductList() {
     // console.log(page.current, totalPages.current, totalPages.current < page.current, 'check')
     if (isFetching.current === false && totalPages.current > page.current) {
       isFetching.current = true;
-      console.log('fetching', filters, 'asdf')
+      // console.log('fetching', filters, 'asdf')
       if(filters.length > 0 && prevFilters.current.length > 0){
         if(filters[0].id !== prevFilters.current[0].id){
           page.current = 1 
@@ -52,12 +52,12 @@ export default function ProductList() {
         body: JSON.stringify(data),
       });
       newProducts = await newProducts.json();
-      console.log(newProducts)
+      // console.log(newProducts)
       totalProducts.current = newProducts.data.getListingProducts.totalProducts;
       totalPages.current = newProducts.data.getListingProducts.totalPages;
       // console.log(totalPages.current, 'total pages')
       newProducts = newProducts.data.getListingProducts.products;
-      console.log(newProducts)
+      // console.log(newProducts)
       if (page.current !== 1) {
         setProducts((prevProducts) => {
           return [...prevProducts, ...newProducts];
@@ -80,7 +80,7 @@ export default function ProductList() {
   useEffect(() => {
     page.current = 1;
     totalPages.current = 300;
-    console.log(filters)
+    // console.log(filters)
     fetchData();
   }, [filters, fetchData]);
 
