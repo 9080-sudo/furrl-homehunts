@@ -13,11 +13,26 @@ export default function ProductList() {
   const totalProducts = useRef(0);
   const isFetching = useRef(false);
   const totalPages = useRef(300)
+  const prevFilters = useRef([])
 
   const fetchData = useCallback(async () => {
-    console.log(page.current, totalPages.current, totalPages.current < page.current, 'check')
+    // console.log(page.current, totalPages.current, totalPages.current < page.current, 'check')
     if (isFetching.current === false && totalPages.current > page.current) {
       isFetching.current = true;
+      console.log('fetching', filters, 'asdf')
+      if(filters.length > 0 && prevFilters.current.length > 0){
+        if(filters[0].id !== prevFilters.current[0].id){
+          page.current = 1 
+          totalPages.current = 300
+          prevFilters.current = filters
+        }
+      }else if(filters.length === 0 && prevFilters.current.length === 0){
+
+      }else{
+        page.current = 1 
+        totalPages.current = 300
+        prevFilters.current = filters
+      }
       setIsLoading(true);
       const url = "https://api.furrl.in/api/v2/listing/getListingProducts";
       const data = {
@@ -37,10 +52,12 @@ export default function ProductList() {
         body: JSON.stringify(data),
       });
       newProducts = await newProducts.json();
+      console.log(newProducts)
       totalProducts.current = newProducts.data.getListingProducts.totalProducts;
       totalPages.current = newProducts.data.getListingProducts.totalPages;
-      console.log(totalPages.current, 'total pages')
+      // console.log(totalPages.current, 'total pages')
       newProducts = newProducts.data.getListingProducts.products;
+      console.log(newProducts)
       if (page.current !== 1) {
         setProducts((prevProducts) => {
           return [...prevProducts, ...newProducts];
@@ -63,18 +80,13 @@ export default function ProductList() {
   useEffect(() => {
     page.current = 1;
     totalPages.current = 300;
+    console.log(filters)
     fetchData();
   }, [filters, fetchData]);
 
   useEffect(() => {
     const handleScroll = () => {
-      console.log(
-        window.innerHeight +
-          Math.floor(document.documentElement.scrollTop) +
-          100 >=
-          document.documentElement.offsetHeight,
-        "check scroll"
-      );
+      
       if (
         !(
           window.innerHeight +

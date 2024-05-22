@@ -31,7 +31,7 @@ export default function ProductItem({ product, takeFullWidth }) {
     widthStyle = { minWidth: "100%" };
     heightStyle = { height: "300px" };
   }
-  console.log(window.innerWidth);
+  // console.log(window.innerWidth);
   const productDetailsLink = `https://web.furrl.in/productDetail?id=${id}&ref=vibeResults_HomeHunts`
   return (
     <li className={classes["product-container"]} style={widthStyle}>
